@@ -1,30 +1,28 @@
-# se494_p0
-SE494 Data Mining for SE programming assignment 0<br />
+Read data file...
 
-Pree Thiengburanathum<br />
-SID: 123456789<br />
-Email: pree.t@cmu.ac.th<br />
+City: 1 Temp AVG =  9.08
+City: 2 Temp AVG =  24.17
+City: 3 Temp AVG =  12.92
+City: 4 Temp AVG =  19.92
+City: 5 Temp AVG =  7.67
+City: 6 Temp AVG =  19.92
+City: 7 Temp AVG =  22.17
+City: 8 Temp AVG =  11.25
+City: 9 Temp AVG =  13.75
+City: 10 Temp AVG =  17.25
+Month 1 Temp AVG =  7.0
+Month 2 Temp AVG =  8.5
+Month 3 Temp AVG =  11.2
+Month 4 Temp AVG =  15.1
+Month 5 Temp AVG =  18.8
+Month 6 Temp AVG =  22.3
+Month 7 Temp AVG =  23.9
+Month 8 Temp AVG =  23.6
+Month 9 Temp AVG =  21.6
+Month 10 Temp AVG =  17.3
+Month 11 Temp AVG =  12.2
+Month 12 Temp AVG =  8.2
 
-How to run: <br />
-put the data.txt in the same directory and run the following command<br />
->>> python main.py<br />
-
-Program output:<br />
-PS E:\Dropbox\CMU-CAMT\CAMT61_1\1.Teaching\SE\SE494 Selective topic (Data Mining)\se494_p0> python main.py <br />
-Read data file... <br />
-number of columns =  12 <br />
-number of rows =  10 <br />
-City: 1 Temp AVG =  9.08 <br />
-City: 2 Temp AVG =  24.17<br />
-City: 3 Temp AVG =  12.92<br />
-City: 4 Temp AVG =  19.92<br />
-City: 5 Temp AVG =  7.67<br />
-City: 6 Temp AVG =  19.92<br />
-City: 7 Temp AVG =  22.17<br />
-City: 8 Temp AVG =  11.25<br />
-City: 9 Temp AVG =  13.75<br />
-City: 10 Temp AVG =  17.25<br />
-
-Min =  ('Season 6', 9.194444444444445)<br />
-Max =  ('Season 3', 15.388888888888888)<br />
-[('Season 9', 8.333333333333334), ('Season 6', 9.194444444444445), ('Season 3', 15.388888888888888)]<br />
+Min =  ('Season 3', 20.833333333333332)
+Max =  ('Season 2', 21.666666666666668)
+[('Season 2', 21.666666666666668), ('Season 3', 20.833333333333332), ('Season 1', 13.933333333333332)]
