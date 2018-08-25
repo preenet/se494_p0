@@ -4,7 +4,7 @@
 """
  Description:
  This program is for demonstrating how to read a simple data file and do basic matrix calculation
- using python programming languauge v3
+ and simple segmentation using Python v3
  Note: Student are not allowed to use numpy to construct the matrix
 """
 import nltk
@@ -15,7 +15,7 @@ def itemGetter(a):
         return a[1]
 
 print('Read data file...')
-# Reading data line from the given text file
+# Read data line from the given text file
 dataFileLine = []
 try:
     fileOBJ = open('data.txt', 'r')
@@ -39,7 +39,6 @@ if (numCol % numOfSeason) > 0:
     print('season errror')
     exit(1)
 
-
 # Calculate city temperature average
 matrix = [[0 for x in range(numCol)] for y in range(numRow)]
 cityTempAvgList = []
@@ -53,49 +52,46 @@ for i in range (numRow):
     cityTempAvgList.append(tempAvg/numCol)
     tempAvg = 0
 
-
 # Calculate average temperature for each month
 monthTempAvgList = []
-tmpAvg = 0
-
-print()
-
 for i in range (numCol):
+    tmpAvg = 0
     for j in range (numRow):
         tmpAvg += matrix[j][i] 
     monthTempAvgList.append(tmpAvg/numRow)
-    tmpAvg = 0
 
-x = [i for i in range(numOfMonthPerSeason, 12+1, numOfMonthPerSeason)]
+# Generate end of season 
+x = [i for i in range(numOfMonthPerSeason-1, numCol+1, numOfMonthPerSeason)]
 
 seasonTempAvgList = []
 tmpAvg = 0
-seasonNum = 0
-for i in range( len(monthTempAvgList) ):
-    if i in x:
-        tmpAvg += monthTempAvgList[i]
-        seasonNum = seasonNum + 1
-        s = ('Season '+ str(seasonNum), tmpAvg/numOfMonthPerSeason)
-        seasonTempAvgList.append(s)
+seasonNum = 1
+
+# Caculate for each season
+for i in range( numCol ):
+    tmpAvg += monthTempAvgList[i]
+    if(i in x):
+        seasonTempAvgList.append( ('Season ' + str(seasonNum), tmpAvg/numOfMonthPerSeason )) 
         tmpAvg = 0
-    else:
-        tmpAvg += monthTempAvgList[i]
+        seasonNum += 1
 
-seasonTempAvgList = sorted(seasonTempAvgList, key=itemGetter)
+seasonTempAvgList = sorted(seasonTempAvgList, key=itemGetter)   
 
+# Display results
 
-
-# display results
 for i in range(len(cityTempAvgList)):
-    print('City:', i+1,'Temp AVG = ', round(cityTempAvgList[i], 2))
+    print('City:', i+1,'Temp AVG =  ', round(cityTempAvgList[i], 2), '\u00B0C', end ='\n')
 
-for i in range(len(monthTempAvgList)):
-    print('Month', i+1,'Temp AVG = ', round(monthTempAvgList[i], 2))
-
-print()
-print('Min = ', seasonTempAvgList[1])
-print('Max = ', seasonTempAvgList[-1])
+print('\nMin = ' + str(seasonTempAvgList[0][0]), '= ', round(seasonTempAvgList[0][1], 2), '\u00B0C')
+print('Max = ' + str(seasonTempAvgList[-1][0]), '= ', round(seasonTempAvgList[-1][1], 2), end = '\u00B0C\n\n')
 
 desc = sorted(seasonTempAvgList, key=itemGetter, reverse = True)
 
-print (desc)
+print('Average Temperture of seasons from high to low:')
+seq = []
+for i in range(len(desc)):
+    seq.append( str(desc[i][0]) + "= " + str(round(desc[i][1], 2)) +'\u00B0C' ) 
+joined = ' > '.join(seq)
+print (joined)    
+
+print('Program terminated properly!')
